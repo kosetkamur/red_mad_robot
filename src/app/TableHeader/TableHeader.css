@@ -1,0 +1,14 @@
+.cells{
+    display: grid;
+    grid-template-columns: 150px  repeat(31, 50px) 150px;
+    grid-auto-rows: 30px;
+    padding-top: 10px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+.cell{
+    display: flex;
+    flex-direction: row;
+    padding: 0 5px;
+}
