@@ -10,4 +10,10 @@ export default class GetTableData {
             console.log(e)
         }
     }
+    static async getElementFilter(val) {
+        let getData = await axios.get(url);
+        return getData.data.filter((el) => {
+            return el.Fullname.includes(val)
+        })
+    }
 }

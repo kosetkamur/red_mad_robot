@@ -2,7 +2,7 @@ import React from 'react';
 
 const TimeOutput = ({time}) => {
     return (
-        <div className='cellData'>
+        <div>
             {time}
         </div>
     );

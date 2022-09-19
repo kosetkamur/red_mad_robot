@@ -4,18 +4,15 @@ import GetTableData from "../api/getTableData"
 import Table from "./Table/Table";
 
 export const App = () => {
-
-    let cells;
-
-
     const [items, setItems] = useState([]);
     const [value, setValue] = useState("");
 
-    const addValue = (e) => {
-        return setValue(e);
-
+    const searchName = (e) => {
+        setValue(e);
+        GetTableData.getElementFilter(e).then((resp) => {
+            setItems(resp);
+        });
     }
-
 
     useEffect(() => {
         GetTableData.getAll().then(resp => {
@@ -23,26 +20,15 @@ export const App = () => {
         });
     }, []);
 
-
-    cells = items.map((item) => {
-        return <Table fullName={item.Fullname} id={item.id} days={item.Days} />;
-    });
-
-    cells = items.map((item) => {
-        if(item.Fullname.indexOf(value)>-1){
-            return <Table fullName={item.Fullname} id={item.id} days={item.Days} />;
-        }
-    });
-
     return (
         <>
             <input type="text"
                    name="fullname"
                    placeholder="Введите имя"
                    value={value}
-                   onChange={e => addValue(e.target.value)}/>
+                   onChange={e => searchName(e.target.value)}/>
             <TableHeader />
-            {cells}
+            {items.map(item => <Table fullName={item.Fullname} id={item.id} days={item.Days} />)}
         </>
     );
 }

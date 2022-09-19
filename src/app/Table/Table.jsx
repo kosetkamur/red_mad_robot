@@ -56,7 +56,7 @@ const Table = ({fullName, days}) => {
                 }
             }
         }
-        return <TimeOutput className='cellData' time={time}/>;
+        return <TimeOutput time={time}/>;
     })
 
     let sum=0;
@@ -65,9 +65,11 @@ const Table = ({fullName, days}) => {
 
     return (
         <div className='cellsData'>
-            <div className='cellData'>{fullName}</div>
+            <div className='cellData_user'>{fullName}</div>
            {data}
-            <div className='cellData'>{timeResult}</div>
+            <div className='cellData_monthly'>
+                {timeResult}
+            </div>
         </div>
     );
 };

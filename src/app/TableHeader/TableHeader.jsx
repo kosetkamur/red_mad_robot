@@ -8,9 +8,9 @@ const TableHeader = () => {
     }
     return (
         <div className="cells">
-            <div className='cell column'>User</div>
+            <div className='cell column_user'>User</div>
             {header.map((item,index) =><div className='cell' key={index}>{item}</div> )}
-            <div className='cell column'>Monthly</div>
+            <div className='cell column_monthly'>Monthly</div>
         </div>
     );
 };
